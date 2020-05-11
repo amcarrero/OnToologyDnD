@@ -1,0 +1,357 @@
+html{
+  background-color: #cccccc;
+}
+
+body{
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  background-color: #333333;
+  padding: 10px;
+}
+
+ul{
+	  list-style-type: none;
+}
+
+header ul{
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+}
+header ul li{
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: 'Spartan', sans-serif;
+  font-size: 20px;
+  color: white;
+}
+
+a:hover{
+  color: #009999;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+
+
+main{
+  background-color: #cccccc;
+}
+
+main h2{
+  margin: 0em;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Spartan', sans-serif;
+  font-size: 40px;
+  font-weight: lighter;
+  color: black;
+  text-align: center;
+}
+
+main h3{
+  margin: 0em;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Spartan', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}
+
+main #services{
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: auto;
+}
+
+main #services img{
+  
+  max-height: 150px;
+  max-width: 200px;
+  -webkit-filter: drop-shadow(5px 5px 5px rgba(0,153,153,0.5) );
+  filter: drop-shadow(5px 5px 5px rgba(0,153,153,0.5));
+
+}
+
+main #services #widoco {
+  max-height: 74px;
+  max-width: 166px;
+}
+
+main #services #oops {
+  max-height: 80px;
+  max-width: 144px;
+
+}
+
+main #services img.dark {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+main #dragndrop {
+  font-family: 'Spartan', sans-serif;
+  font-size: 30px;
+  font-weight: lighter;
+  text-align: center;
+    border: 2px solid #333333;
+    background-color: white;
+    border-radius: 10px;
+    width: 600px;
+    height: 300px;
+    margin: 0px auto;
+    padding: 20px;
+  }
+  main #dragndrop.is-dragover {
+    border: 2px solid turquoise;
+    
+  }
+
+  main #dragndrop.is-dragover img{
+    width: 229;
+    height: 112;    
+  }
+
+  main #dragndrop img {
+    margin-top: 64px;
+    width: 131;
+    height: 64;
+  }
+  
+  main .my-form {
+    margin-bottom: 10px;
+  }
+  main #ontologies {
+    margin-top: 10px;
+  }
+  main #ontologies div {
+    width: 150px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 600px;
+    height: 90px;
+    margin: 0px auto;
+    margin-bottom: 10px;
+    border: 2px solid #333333;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Spartan', sans-serif;
+    font-size: 15px;
+  }
+
+  main #ontologies div.themis {
+    width: 150px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 600px;
+    height: 180px;
+    margin: 0px auto;
+    margin-bottom: 10px;
+    border: 2px solid #333333;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Spartan', sans-serif;
+    font-size: 15px;
+  }
+
+  main #ontologies div div {
+    font-family: 'Spartan', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: center;
+    border: 2px solid #333333;
+    background-color: white;
+    border-radius: 10px;
+    width: 500px;
+    height: 60px;
+    margin: 0px auto;
+    margin-top: 15px;
+    padding: 20px;
+    }
+
+  main #ontologies div div.is-dragover {
+      border: 2px solid turquoise;
+    }
+  
+  main .hidden {
+      display: none;
+    }
+
+  main button {
+    font-family: 'Spartan', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    background: #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #333333;
+    margin-bottom: 1em;
+  }
+  main button.acti:hover {
+    font-family: 'Spartan', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    color: white;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    background: #009999;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #009999;
+    margin-bottom: 1em;
+  }
+  main #fileElem {
+    display: none;
+  }
+
+  main #wait{
+    display: block;
+    margin: 0 auto;
+  }
+
+  main #status{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+  }
+
+  main #status div p{
+    font-family: 'Spartan', sans-serif;
+    font-size: 30px;
+    color: black;
+  }
+
+  main #status span{
+    font-size: 60px;
+  }
+
+  main img#sbs {
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin: 0 auto;
+        border: 2px solid #333333;
+    
+  }
+
+  body {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  main {
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* Footer height */
+  }
+  
+  footer{
+    background-color: #333333;
+    font-family: 'Spartan', sans-serif;
+    font-size: 10px;
+    color: white;
+    text-align: center;
+  }
+
+  .error {
+    color: red;
+  }
+  
+  .pretty{
+  	    text-align: center;
+  	    font-family: 'Spartan', sans-serif;
+  	    font-size: 20px;
+  }
+  
+  .pretty2{
+  	    text-align: center;
+		font-family: 'Spartan', sans-serif;
+  	    font-size: 20px;
+  }
+  
+ 
+
+  /* Reponsive */
+  div#mobile{
+    display: none;
+  }
+  header span.material-icons{
+    display: none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    /* For mobile: */
+    nav{
+      display: none;
+    }
+    div#desktop{
+      display: none;
+    }
+    div#mobile{
+      display: unset;
+    }
+    
+    header span.material-icons{
+      display: unset;
+      color: #009999;
+    }
+
+    nav.open{
+        z-index: 5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #222222;
+        height: 448px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    nav.open ul{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: column;
+      padding: 0;
+    }
+    nav.open ul li{
+      margin-top: 1em;
+    }
+    main img#sbs {
+    width: 90%;
+    height: 90%;
+    display: block;
+    margin: 0 auto;
+        border: 2px solid #333333;
+    
+  }
+    
+  }
+  
