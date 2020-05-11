@@ -15,7 +15,6 @@ public class ZipDirectory {
 		String sourceFile = directory;
 		FileOutputStream fos = new FileOutputStream(out);
 		ZipOutputStream zipOut = new ZipOutputStream(fos);
-		System.out.println("Compresing" + directory + " to " + out);
 		File fileToZip = new File(sourceFile);
 		zipFile(fileToZip, fileToZip.getName(), zipOut);
 		zipOut.close();

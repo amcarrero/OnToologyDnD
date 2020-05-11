@@ -40,6 +40,10 @@ let idClient = localStorage.getItem('id');
 //Drop area configuration, https://www.smashingmagazine.com/2018/01/drag-drop-file-uploader-vanilla-js/
 
 let dropArea = document.getElementById('dragndrop');
+let dragArea = document.getElementById('drop');
+let imagednd = document.querySelector("#dragndrop img");
+let textdnd = document.querySelector("#dragndrop p");
+
 
 let events = ['dragenter', 'dragover', 'dragleave', 'drop'];
 
@@ -51,15 +55,20 @@ function preventDefaults(e) {
   e.preventDefault()
   e.stopPropagation()
 }
+function addEvents(events, element){
+  events.forEach(eventName => element.addEventListener(eventName, () => {
+    dropArea.classList.add('is-dragover');
+    let textdnd = document.querySelector("#dragndrop p");
+    textdnd.classList.remove("error");
+    textdnd.textContent = "DROP IT!"
+    let img = document.getElementById("dndImg");
+    img.src = "static/images/logo-color.png"
+  }));
+}
 
-['dragover', 'dragenter'].forEach(eventName => dropArea.addEventListener(eventName, () => {
-  dropArea.classList.add('is-dragover');
-  let textdnd = document.querySelector("#dragndrop p");
-  textdnd.classList.remove("error");
-  textdnd.textContent = "DROP IT!"
-  let img = document.getElementById("dndImg");
-  img.src = "static/images/logo-color.png"
-}));
+addEvents( ['dragover', 'dragenter'], dragArea);
+addEvents(events, imagednd);
+addEvents(events, textdnd);
 
 ['dragleave', 'dragend', 'drop'].forEach(eventName => dropArea.addEventListener(eventName, () => {
   dropArea.classList.remove('is-dragover');
@@ -250,7 +259,8 @@ function handleFilesTest(files) {
 
   //remove ontology
   p1.addEventListener("click", () => {
-    services.splice(checkboxThemis.name, 1);
+    services = services.filter( (s) => checkboxThemis.name != s.nOntology);
+    configuration.services = services;
     document.getElementById('ontologies').removeChild(added);
     if (services.length == 0) {
       let sendButton = document.getElementById("send");
@@ -264,6 +274,7 @@ function handleFilesTest(files) {
   nOntology++;
 
 }
+
 
 //Upload Test
 function uploadFileTest(file, nOnt, p) {

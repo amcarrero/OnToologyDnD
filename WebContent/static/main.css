@@ -4,6 +4,11 @@ html{
 
 body{
   margin: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+
 }
 
 header {
@@ -99,18 +104,33 @@ main #services img.dark {
   filter: grayscale(100%);
 }
 
-main #dragndrop {
-  font-family: 'Spartan', sans-serif;
-  font-size: 30px;
-  font-weight: lighter;
-  text-align: center;
+  
+
+  main #dragndrop {
+    font-family: 'Spartan', sans-serif;
+   font-size: 30px;
+   font-weight: lighter;
+    text-align: center;
     border: 2px solid #333333;
     background-color: white;
     border-radius: 10px;
     width: 600px;
     height: 300px;
     margin: 0px auto;
+    
     padding: 20px;
+    
+  }
+  main #drop {
+    position: relative;
+    z-index: 5;
+    border-radius: 10px;
+    width: 640px;
+    height: 340px;
+    margin: 0px auto;
+    padding: 0px;
+    margin-left: -20px;
+    margin-top: -20px;
   }
   main #dragndrop.is-dragover {
     border: 2px solid turquoise;
@@ -119,13 +139,19 @@ main #dragndrop {
 
   main #dragndrop.is-dragover img{
     width: 229;
-    height: 112;    
+    height: 112;
+  }
+
+  main #dragndrop p {
+    margin-top: -300px;
+    z-index: -5;
   }
 
   main #dragndrop img {
     margin-top: 64px;
     width: 131;
     height: 64;
+    z-index: -5;
   }
   
   main .my-form {

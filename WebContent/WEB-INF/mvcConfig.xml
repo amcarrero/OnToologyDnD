@@ -11,6 +11,7 @@
 	<mvc:annotation-driven/>
 	<context:component-scan base-package="com.ontoology.controller"/>
 	<context:component-scan base-package="com.ontoology.util"/>
+	<context:component-scan base-package="com.ontoology.model"/>
 	
 	
 	<bean id="resolver"

@@ -36,23 +36,20 @@
     <div id="desktop">
         <h2>1) Select the services that you want to use</h2>
         <div id="services">
-            <img id="widoco" src="static/images/logo2.png" title="Widoco generate documentation about your ontologies">
-            <img id="ar2dtool" src="static/images/ar2dtool.png" title="AR2DTOOL generate class and taxonomy diagrams">
-            <img id="oops" src="static/images/logoWhite65.png" title="Oops! reports the pitfalls of the ontologies">
-            <img id="themis" src="static/images/themis.png" title="Themis execute tests to validate your ontology">
-            <img id="astrea" src="static/images/astrea-500px.png" title="Astrea generate SHACL shapes">
+            <img id="widoco" src="static/images/logo2.png" title="Widoco generate documentation about your ontologies" draggable="false">
+            <img id="ar2dtool" src="static/images/ar2dtool.png" title="AR2DTOOL generate class and taxonomy diagrams" draggable="false">
+            <img id="oops" src="static/images/logoWhite65.png" title="Oops! reports the pitfalls of the ontologies" draggable="false">
+            <img id="themis" src="static/images/themis.png" title="Themis execute tests to validate your ontology" draggable="false">
+            <img id="astrea" src="static/images/astrea-500px.png" title="Astrea generate SHACL shapes" draggable="false">
         </div>
 
         <h2>2) Upload your ontologies</h2>
 
         <div id="dragndrop">
-            <form class="my-form">
+              <div id="drop"></div>
               <p>DROP YOUR ONTOLOGY HERE</p>
-              <img id="dndImg" src="static/images/logo-gris.png">
-              <input type="file" id="fileElem" name="ontology" multiple accept="*.owl" onchange="handleFiles(this.files)">
-             <!--<label class="button" for="fileElem">Select some files</label> --> 
-            </form>
-          </div>
+              <img id="dndImg" src="static/images/logo-gris.png" draggable="false">
+        </div>
 
           <div id="ontologies"></div>
 

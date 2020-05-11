@@ -2,17 +2,17 @@ package com.ontoology.model;
 
 public class AstreaApiPojo {
 	private String ontology;
-	private String serialisasion;
+	private String serialisation;
 	
 	
 	public AstreaApiPojo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public AstreaApiPojo(String ontology, String serialisasion) {
+	public AstreaApiPojo(String ontology, String serialisation) {
 		super();
 		this.ontology = ontology;
-		this.serialisasion = serialisasion;
+		this.serialisation = serialisation;
 	}
 	public String getOntology() {
 		return ontology;
@@ -20,11 +20,11 @@ public class AstreaApiPojo {
 	public void setOntology(String ontology) {
 		this.ontology = ontology;
 	}
-	public String getSerialisasion() {
-		return serialisasion;
+	public String getSerialisation() {
+		return serialisation;
 	}
-	public void setSerialisasion(String serialisasion) {
-		this.serialisasion = serialisasion;
+	public void setSerialisation(String serialisation) {
+		this.serialisation = serialisation;
 	}
 	
 	
