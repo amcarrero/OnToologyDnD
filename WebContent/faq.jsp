@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js">
     </script>
+    <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+
 
 </head>
 
@@ -35,33 +37,25 @@
     <main>
 
         <ul>
-            <li>
-                <h2>What is OnToology?</h2>
-                <p class = "pretty2">
+                <h2 class = "pretty2">What is OnToology?</h2>
+                <li class = "pretty">
                     A system to automate part of the collaborative ontology development process. Given an ontology
                     file, OnToology will produce diagrams, a complete documentation and validation based on
                     common pitfalls.
-                </p>
-            </li>
-            <li>
-                <h2>How to use it?</h2>
-                <p class = "pretty2">
+                </li>
+                <h2 class = "pretty2">How to use it?</h2>
+                <li class = "pretty">
                    Please, see the <a href="/stepbystep">Step by Step</a> page for more info.
-                </p>
-            </li>
-            <li>
-                <h2>What is the supported files names?</h2>
-                <p class = "pretty2">
+                </li>
+                <h2 class = "pretty2">What is the supported files names?</h2>
+                <li class = "pretty">
                     English alphabets (caps and small), underscores, dashes, and dots. Other alphabets and characters are not
                     supported.
-                </p>
-            </li>
-            <li>
-                <h2>OnToology did not use Github as a way to collect the ontologies and publish the result?</h2>
-                <p class = "pretty2">
+                </li>
+                <h2 class = "pretty2">OnToology did not use Github as a way to collect the ontologies and publish the result?</h2>
+                <li class = "pretty">
                     Yes, and you can still use it at <a href="http://ontoology.linkeddata.es/">OnToology</a>.
-                </p>
-            </li>
+                </li>
         </ul>
 
     </main>
@@ -72,6 +66,17 @@
     </footer>
 
     <script src="/static/menu.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+        ga('create', 'UA-56720864-1', 'auto');
+        ga('send', 'pageview');
+      
+      </script>
+      
 </body>
 
 </html>

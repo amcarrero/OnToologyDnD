@@ -4,21 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ontoology</groupId>
 	<artifactId>ontoology</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
+	
+	
 	<properties>
 		<spring-version>5.2.2.RELEASE</spring-version>
 		<restlet.version>2.4.0</restlet.version> 
-
 	</properties>
-
-	<repositories>
-		<repository>
-			<id>maven-restlet</id>
-			<name>Restlet repository</name>
-			<url>https://maven.restlet.com</url>
-		</repository>
-	</repositories>
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -35,7 +28,10 @@
 				<version>3.2.3</version>
 				<configuration>
 					<warSourceDirectory>WebContent</warSourceDirectory>
+					<warSourceExcludes>TestFiles</warSourceExcludes>
+					<warSourceExcludes>libraries</warSourceExcludes>
 				</configuration>
+				
 			</plugin>
 		</plugins>
 	</build>
@@ -105,19 +101,6 @@
 			<version>2.10.1</version>
 		</dependency>
 
-		<!-- Restlet -->
-		<dependency>
-			<groupId>org.restlet.jse</groupId>
-			<artifactId>org.restlet</artifactId>
-			<version>${restlet.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.restlet.jse</groupId>
-			<artifactId>org.restlet.ext.jackson</artifactId>
-			<version>${restlet.version}</version>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.apache.jena/jena-core -->
 		<dependency>
 			<groupId>org.apache.jena</groupId>
@@ -132,11 +115,5 @@
 			<version>5.7.0.202003110725-r</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>${spring-version}</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 </project>

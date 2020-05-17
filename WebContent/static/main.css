@@ -111,13 +111,15 @@ main #services img.dark {
    font-size: 30px;
    font-weight: lighter;
     text-align: center;
-    border: 2px solid #333333;
     background-color: white;
     border-radius: 10px;
     width: 600px;
     height: 300px;
     margin: 0px auto;
-    
+    box-shadow: 1px 1px 1px 1px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     padding: 20px;
     
   }
@@ -134,6 +136,8 @@ main #services img.dark {
   }
   main #dragndrop.is-dragover {
     border: 2px solid turquoise;
+    margin-bottom: -2px;
+    margin-top: -2px;
     
   }
 
@@ -168,12 +172,14 @@ main #services img.dark {
     height: 90px;
     margin: 0px auto;
     margin-bottom: 10px;
-    border: 2px solid #333333;
     background-color: white;
     border-radius: 10px;
     padding: 20px;
     font-family: 'Spartan', sans-serif;
     font-size: 15px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   }
 
   main #ontologies div.themis {
@@ -184,12 +190,14 @@ main #services img.dark {
     height: 180px;
     margin: 0px auto;
     margin-bottom: 10px;
-    border: 2px solid #333333;
     background-color: white;
     border-radius: 10px;
     padding: 20px;
     font-family: 'Spartan', sans-serif;
     font-size: 15px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   }
 
   main #ontologies div div {
@@ -197,7 +205,6 @@ main #services img.dark {
     font-size: 20px;
     font-weight: lighter;
     text-align: center;
-    border: 2px solid #333333;
     background-color: white;
     border-radius: 10px;
     width: 500px;
@@ -205,11 +212,18 @@ main #services img.dark {
     margin: 0px auto;
     margin-top: 15px;
     padding: 20px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     }
 
   main #ontologies div div.is-dragover {
       border: 2px solid turquoise;
     }
+
+  main #ontologies label{
+    margin-right: 15px;
+  }
   
   main .hidden {
       display: none;
@@ -272,8 +286,8 @@ main #services img.dark {
     height: 50%;
     display: block;
     margin: 0 auto;
-        border: 2px solid #333333;
-    
+    border: 2px solid #333333;
+    margin-bottom: 5px;
   }
 
   body {
@@ -306,18 +320,61 @@ main #services img.dark {
 
   .error {
     color: red;
+    margin-bottom: -10px;
   }
   
   .pretty{
-  	    text-align: center;
+  	    text-align: justify;
   	    font-family: 'Spartan', sans-serif;
-  	    font-size: 20px;
+        font-size: 20px;
+        list-style: disc;
+        margin-left: 20%;
+        width: 70%;
+
   }
   
   .pretty2{
-  	    text-align: center;
-		font-family: 'Spartan', sans-serif;
-  	    font-size: 20px;
+      margin-left: 20%;
+      margin-right: 20%;
+
+  }
+
+  textarea{
+    background-color: #333333;
+    color: #ccc;
+    resize: none;
+  }
+
+  #flexContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  main#steps{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  main#steps div#step{
+    background-color: #333333;
+    color: #ccc;
+    flex: 1 600px;
+    margin: 3em;
+    -webkit-box-shadow: 0 35px 20px #777;
+    -moz-box-shadow: 0 35px 20px #777;
+    box-shadow: 0 35px 20px #777;  
+  }
+
+  main#steps div#step h2{
+    color: #009999;
+    
+  }
+
+  #hiddenImg{
+    display: none;
   }
   
  
@@ -340,11 +397,26 @@ main #services img.dark {
     }
     div#mobile{
       display: unset;
+      
+    }
+
+    div#mobile p{
+      font-family: 'Spartan', sans-serif;
+      font-size: 20px;
+      font-weight: lighter;
+      margin-left: 1em;
+    }
+
+    #mobileImg{
+      width: 50%;
+      display: block;
+      margin: 0 auto;
     }
     
     header span.material-icons{
       display: unset;
       color: #009999;
+      align-self: center;
     }
 
     nav.open{
@@ -375,8 +447,21 @@ main #services img.dark {
     height: 90%;
     display: block;
     margin: 0 auto;
-        border: 2px solid #333333;
+    border: 2px solid #333333;
     
+   }
+
+    main#steps div#step{
+      margin: 1em;
+    }
+    .pretty{
+      width: 80%;
+      margin-left: 5%;
+    }
+    .pretty2{
+      margin-left: 1%;
+      margin-right: 1%;
+      font-size: 30px;
   }
     
   }

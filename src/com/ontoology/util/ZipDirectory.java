@@ -22,9 +22,6 @@ public class ZipDirectory {
 	}
 	
 	private static void zipFile(File fileToZip, String fileName, ZipOutputStream zipOut) throws IOException {
-		if (fileToZip.isHidden()) {
-			return;
-		}
 		if (fileToZip.isDirectory()) {
 			if (fileName.endsWith("/")) {
 				zipOut.putNextEntry(new ZipEntry(fileName));

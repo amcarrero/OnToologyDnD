@@ -32,5 +32,9 @@ static String conf2 = Configuration.AR2DTOOL_CONF2;
 	    
 		Process p2 = Runtime.getRuntime().exec(comm2);   
 		p2.waitFor();
+		
+	    if(p.exitValue()!=0 || p2.exitValue()!=0)
+	    	throw new Exception();
+
 	}
 }

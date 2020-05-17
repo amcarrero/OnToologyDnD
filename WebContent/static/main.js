@@ -286,7 +286,7 @@ function uploadFileTest(file, nOnt, p) {
   xhr.addEventListener('readystatechange', function (e) {
     if (xhr.readyState == 4 && xhr.status == 200) {
       // Done. Inform the user
-      p.innerText = file.name + "   has been uploaded, drop another test to replace it";
+      p.innerHTML = "<strong>" + file.name + "</strong> has been uploaded, drop another test to replace it";
 
     }
     else if (xhr.readyState == 4 && xhr.status != 200) {

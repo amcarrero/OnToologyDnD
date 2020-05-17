@@ -16,7 +16,7 @@ import com.ontoology.util.Configuration;
 import com.ontoology.util.ZipDirectory;
 
 public class OnToologyService {
-
+	
 	public static void widoco(String clientId, String nOnt, String originalName) throws Exception {
 		Path ontoology = Paths.get("tmp//ontologies//" + clientId + "//OnToology//");
 		if (!Files.exists(ontoology))
@@ -135,6 +135,8 @@ public class OnToologyService {
 			 
 				Model model = ModelFactory.createDefaultModel();
 				model.read(file.getInputStream(), null, "RDF/XML");
+				if(model.size() == 0)
+					throw new IllegalArgumentException();
 				Path path = Paths.get("tmp//ontologies//" + clientId);
 				if (!Files.exists(path))
 					Files.createDirectory(path);
@@ -143,7 +145,7 @@ public class OnToologyService {
 				Long nOntologias = Files.list(path).count();
 				nOntologias--;
 				path = Paths.get("tmp//ontologies//" + clientId + "//" + nOntologias + ".rdf");
-
+				
 				RDFWriter writer = model.getWriter("RDF/XML");
 				writer.setProperty("showXmlDeclaration", "true");
 				FileOutputStream fos = new FileOutputStream(path.toString());
@@ -156,6 +158,8 @@ public class OnToologyService {
 				
 					Model model = ModelFactory.createDefaultModel();
 					model.read(file.getInputStream(), null, "TTL");
+					if(model.size() == 0)
+						throw new IllegalArgumentException();
 					Path path = Paths.get("tmp//ontologies//" + clientId);
 					if (!Files.exists(path))
 						Files.createDirectory(path);
@@ -170,11 +174,13 @@ public class OnToologyService {
 					FileOutputStream fos = new FileOutputStream(path.toString());
 					OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
 					writer.write(model, osw, null);
-				
+
 			} catch (Exception e) {
 				
 					Model model = ModelFactory.createDefaultModel();
 					model.read(file.getInputStream(), null, "N-TRIPLE");
+					if(model.size() == 0)
+						throw new IllegalArgumentException();
 					Path path = Paths.get("tmp//ontologies//" + clientId);
 					if (!Files.exists(path))
 						Files.createDirectory(path);
@@ -189,7 +195,7 @@ public class OnToologyService {
 					FileOutputStream fos = new FileOutputStream(path.toString());
 					OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
 					writer.write(model, osw, null);
-				
+
 			}
 		}
 	}
@@ -198,6 +204,8 @@ public class OnToologyService {
 		
 		Model model = ModelFactory.createDefaultModel();
 		model.read(file.getInputStream(), null, "TTL");
+		if(model.size() == 0)
+			throw new IllegalArgumentException();
 		Path path = Paths.get("tmp//ontologies//" + clientId);
 		if (!Files.exists(path))
 			Files.createDirectory(path);

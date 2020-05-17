@@ -8,7 +8,8 @@
     rel="stylesheet">
     <link rel="stylesheet" href="static/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400&display=swap" rel="stylesheet">
-    
+    <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js">
     </script>
 
@@ -49,6 +50,7 @@
               <div id="drop"></div>
               <p>DROP YOUR ONTOLOGY HERE</p>
               <img id="dndImg" src="static/images/logo-gris.png" draggable="false">
+              <img id="hiddenImg" src="static/images/logo-color.png" draggable="false">
         </div>
 
           <div id="ontologies"></div>
@@ -58,6 +60,7 @@
     <div id="mobile">
         <h2>OnToology D&D</h2>
         <p>In order to use OnToology Drag and Drop, please use a computer, or, if you have your ontology in a GitHub repository, go to <a href="http://ontoology.linkeddata.es/">OnToology</a></p>
+        <img id="mobileImg" src="static/images/logo-gris.png" draggable="false">
     </div>
 
 
@@ -70,6 +73,17 @@
 
     <script src="static/main.js"></script>
     <script src="static/menu.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+        ga('create', 'UA-56720864-1', 'auto');
+        ga('send', 'pageview');
+      
+      </script>
+      
 
 </body>
 </html>

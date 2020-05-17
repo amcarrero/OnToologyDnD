@@ -5,6 +5,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <property name="java-output-path" value="/practica/build/classes"/>
+        <property name="component.exclusion.patterns" value="libraries"/>
         <property name="context-root" value="/"/>
     </wb-module>
 </project-modules>

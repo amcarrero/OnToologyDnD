@@ -12,9 +12,15 @@ let radios = [widocoR, ar2dtoolR, astreaR, themisR, oopsR];
 
 let h3 = document.querySelector('h3');
 
+let console = document.querySelector("#console");
+
 let downloadButton = document.getElementById("download");
 
 let configuration = JSON.parse(localStorage.getItem('configuration'));
+
+if(configuration==null || configuration.services.length == 0){
+    window.location.href = "/";
+}
 
 
 let index = 0;
@@ -156,26 +162,46 @@ function astrea(originalName, nOntology, element) {
 //Request to OnToology backend
 function backendRequest(service, radio, originalName, nOntology, next, element) {
     let f = new Date();
-    console.log(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear() + " " + f.getHours() +":" + f.getMinutes() + "  Se acaba de comenzar a generar: " + service + " " + originalName);
+    let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + "  The generation of " + service + " elements of " + originalName + " has started";
+    console.textContent = console.textContent + t + "\n";
+    console.scrollTop = console.scrollHeight;
 
     var xhr = new XMLHttpRequest();
+    xhr.timeout = 120000;
+    if(service == "widoco" || service == "ar2dtool")
+        xhr.timeout = 180000;
+
     let url = "/" + service + '/' + idClient + "/" + nOntology + "/" + originalName;
 
     xhr.open('GET', url, true);
 
     xhr.addEventListener('readystatechange', function (e) {
         if (e.target.readyState == 4 && e.target.status == 200) {
+            f = new Date();
+            let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + "  The generation of " + service + " elements of " + originalName + " has finished";
+            console.textContent = console.textContent + t + "\n";
+            console.scrollTop = console.scrollHeight
 
             radio.textContent = "radio_button_checked";
             
-
             next(originalName, nOntology, element);
         } else if (e.target.readyState == 4 && e.target.status != 200) {
             // Error. Inform the user
-            console.log("se lió en " + service);
-            next(originalName, nOntology, element);
+            f = new Date();
+            let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + "  The generation of " + service + " elements of " + originalName + " has encounter a problem, the " + service + " files will not be avaliable";
+            console.textContent = console.textContent + t + "\n";
+            console.scrollTop = console.scrollHeight
+
+                    next(originalName, nOntology, element);
         }
     });
+
+    xhr.ontimeout = function (e) {
+        f = new Date();
+        let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + " PROBLEM: The server endpoint of " + service + " has taken too long to respond, it seems that we are a little saturated, try another time";
+        console.textContent = console.textContent + t + "\n";
+        console.scrollTop = console.scrollHeight
+  };
 
     xhr.send();
 }
@@ -183,30 +209,51 @@ function backendRequest(service, radio, originalName, nOntology, next, element) 
 //Request to backend to Zip users files
 function zip() {
     let f = new Date();
+    let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + "  The generation of the zip has started";
+    console.textContent = console.textContent + t + "\n";
+    console.scrollTop = console.scrollHeight
 
-    console.log(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear() + " " + f.getHours() +":" + f.getMinutes() + "  Se acaba de comenzar a generar: zip");
 
     var xhr = new XMLHttpRequest();
     let url = "/" + 'zip/' + idClient;
-
+    xhr.timeout = 120000;
     xhr.open('GET', url, true);
 
     xhr.addEventListener('readystatechange', function (e) {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            document.querySelector('main').removeChild(document.querySelector('main img'));
+            document.querySelector('main div#flexContainer div').removeChild(document.querySelector('main div#flexContainer div img'));
 
             h3.textContent = "Your download is ready";
-
+            f = new Date();
+            let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + "  Zip ready, Download your file now!";
+            console.textContent = console.textContent + t + "\n";
+            console.scrollTop = console.scrollHeight
+        
             document.querySelector('button').removeAttribute("disabled");
             document.querySelector('button').classList.add("acti");
 
             downloadButton.addEventListener("click", () => window.location.replace("/download/" + idClient));
         }
         else if (xhr.readyState == 4 && xhr.status != 200) {
-            console.log("se lió");
+            f = new Date();
+            let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + "  The generation of the zip has encounter a problem, the download will not be avaliable";
+            console.textContent = console.textContent + t + "\n";
+            console.scrollTop = console.scrollHeight;
+
+            document.querySelector('main div#flexContainer div').removeChild(document.querySelector('main div#flexContainer div img'));
+            h3.textContent = "Please try again later";
+
+        
             cntn = false;
         }
     })
+
+    xhr.ontimeout = function (e) {
+        f = new Date();
+        let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + " The server has taken too long to respond, it seems that we are a little saturated, try another time";
+        console.textContent = console.textContent + t + "\n";
+        console.scrollTop = console.scrollHeight
+  };
 
     xhr.send();
 }
