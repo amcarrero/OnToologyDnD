@@ -57,7 +57,7 @@ public class OnToologyService {
 
 	}
 
-	public static void astrea(String clientId, String nOnt, String originalName) throws IOException {
+	public static void astrea(String clientId, String nOnt, String originalName) throws Exception {
 		Path ontoology = Paths.get("tmp//ontologies//" + clientId + "//OnToology//");
 		if (!Files.exists(ontoology))
 			Files.createDirectory(ontoology);
@@ -78,7 +78,7 @@ public class OnToologyService {
 
 	}
 
-	public static void themis(String clientId, String nOnt, String originalName) throws IOException {
+	public static void themis(String clientId, String nOnt, String originalName) throws Exception {
 		Path ontoology = Paths.get("tmp//ontologies//" + clientId + "//OnToology//");
 		if (!Files.exists(ontoology))
 			Files.createDirectory(ontoology);
@@ -96,7 +96,7 @@ public class OnToologyService {
 		ThemisService.executeTests(clientId, nOnt, themisDir);
 	}
 
-	public static void oops(String clientId, String nOnt, String originalName) throws IOException {
+	public static void oops(String clientId, String nOnt, String originalName) throws Exception {
 		Path ontoology = Paths.get("tmp//ontologies//" + clientId + "//OnToology//");
 		if (!Files.exists(ontoology))
 			Files.createDirectory(ontoology);
@@ -129,7 +129,7 @@ public class OnToologyService {
 
 	}
 
-	public void saveOntology(MultipartFile file, String clientId) throws IOException {
+	public static void saveOntology(MultipartFile file, String clientId) throws IOException {
 		if (!file.isEmpty())
 		try {
 			 
@@ -143,7 +143,6 @@ public class OnToologyService {
 				if (!Files.exists(path.resolve("tests")))
 					Files.createDirectory(path.resolve("tests"));
 				Long nOntologias = Files.list(path).count();
-				nOntologias--;
 				path = Paths.get("tmp//ontologies//" + clientId + "//" + nOntologias + ".rdf");
 				
 				RDFWriter writer = model.getWriter("RDF/XML");
@@ -166,7 +165,6 @@ public class OnToologyService {
 					if (!Files.exists(path.resolve("tests")))
 						Files.createDirectory(path.resolve("tests"));
 					Long nOntologias = Files.list(path).count();
-					nOntologias--;
 					path = Paths.get("tmp//ontologies//" + clientId + "//" + nOntologias + ".rdf");
 
 					RDFWriter writer = model.getWriter("RDF/XML");
@@ -187,7 +185,6 @@ public class OnToologyService {
 					if (!Files.exists(path.resolve("tests")))
 						Files.createDirectory(path.resolve("tests"));
 					Long nOntologias = Files.list(path).count();
-					nOntologias--;
 					path = Paths.get("tmp//ontologies//" + clientId + "//" + nOntologias + ".rdf");
 
 					RDFWriter writer = model.getWriter("RDF/XML");
@@ -200,7 +197,7 @@ public class OnToologyService {
 		}
 	}
 
-	public void saveTest(MultipartFile file, String clientId, String nOnt) throws IOException {
+	public static void saveTest(MultipartFile file, String clientId, String nOnt) throws IOException {
 		
 		Model model = ModelFactory.createDefaultModel();
 		model.read(file.getInputStream(), null, "TTL");

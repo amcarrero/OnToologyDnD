@@ -75,7 +75,7 @@ addEvents(events, textdnd);
   let img = document.getElementById("dndImg");
   img.src = "static/images/logo-gris.png"
   let textdnd = document.querySelector("#dragndrop p");
-  textdnd.textContent = "DROP YOUR ONTOLOGY HERE!"
+  textdnd.textContent = "DROP YOUR ONTOLOGIES HERE!"
 }));
 
 dropArea.addEventListener('drop', handleDrop, false)
@@ -136,7 +136,7 @@ function uploadFile(file) {
 
 //Preview ontology and configuration
 
-let nOntology = 0;
+let nOntology = 1;
 let configuration = { "clientId": idClient };
 let services = [];
 configuration["services"] = services;
@@ -213,7 +213,7 @@ function previewFile(file) {
   dragndroptest.id = "dragndroptest";
   dragndroptest.className = "dragndroptest";
   let ptest = document.createElement("p");
-  ptest.innerText = "Drop your test here!";
+  ptest.innerHTML = "Drop your Themis test here! <p class ='smaller'>If you don't provide a test, will be generated from your ontology tests as example</p>";
   dragndroptest.appendChild(ptest);
   div.classList.add("themis");
   if(!globalConfig.themis){

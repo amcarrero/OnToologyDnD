@@ -1,6 +1,5 @@
 package com.ontoology.service;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -8,7 +7,7 @@ import com.ontoology.resources.AstreaResource;
 
 public class AstreaService {
 
-	public static void generateShapes(Path ontology, Path out) throws IOException {
+	public static void generateShapes(Path ontology, Path out) throws Exception {
 		
 		AstreaResource ar = new AstreaResource();
 		

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OnToology Drag&Drop</title>
+    <title>OnToology Drag&amp;Drop</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet">
     <link rel="stylesheet" href="static/main.css">
@@ -48,7 +48,7 @@
 
         <div id="dragndrop">
               <div id="drop"></div>
-              <p>DROP YOUR ONTOLOGY HERE</p>
+              <p>DROP YOUR ONTOLOGIES HERE</p>
               <img id="dndImg" src="static/images/logo-gris.png" draggable="false">
               <img id="hiddenImg" src="static/images/logo-color.png" draggable="false">
         </div>
@@ -58,7 +58,7 @@
           <button id="send" disabled>START!</button>
     </div>
     <div id="mobile">
-        <h2>OnToology D&D</h2>
+        <h2>OnToology D&amp;D</h2>
         <p>In order to use OnToology Drag and Drop, please use a computer, or, if you have your ontology in a GitHub repository, go to <a href="http://ontoology.linkeddata.es/">OnToology</a></p>
         <img id="mobileImg" src="static/images/logo-gris.png" draggable="false">
     </div>
@@ -68,7 +68,10 @@
 
 
     <footer>
-        Ontology Engineering Group | Powered by Widoco, AR2DTOOL, Astrea, Themis and OOPS!
+        <p>Ontology Engineering Group | Powered by Widoco, AR2DTOOL, Astrea, Themis and OOPS! </p>  
+        <img src="static/images/OEG.png" alt="">
+        <img src="static/images/ETSIInf.png" alt="">
+        <img src="static/images/UPM.png" alt="">
     </footer>
 
     <script src="static/main.js"></script>

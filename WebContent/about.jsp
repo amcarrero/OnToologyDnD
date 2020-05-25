@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OnToology Drag&Drop</title>
+    <title>OnToology Drag&amp;Drop</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet">
     <link rel="stylesheet" href="static/main.css">
@@ -34,7 +34,7 @@
      </header>
 
     <main>        
-        <h2 class="pretty2">What does OnToology D&D generate</h2>
+        <h2 class="pretty2">What does OnToology D&amp;D generate</h2>
         <ul>
             <li class = "pretty">
                 Generate HTML documentation and .htaccess using Widoco.
@@ -76,7 +76,10 @@
 
 
     <footer>
-        Ontology Engineering Group | Powered by Widoco, AR2DTOOL, Astrea, Themis and OOPS!
+        <p>Ontology Engineering Group | Powered by Widoco, AR2DTOOL, Astrea, Themis and OOPS! </p>  
+        <img src="static/images/OEG.png" alt="">
+        <img src="static/images/ETSIInf.png" alt="">
+        <img src="static/images/UPM.png" alt="">
     </footer>
 
     <script src="static/menu.js"></script>

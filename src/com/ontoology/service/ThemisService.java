@@ -10,7 +10,7 @@ import com.ontoology.resources.ThemisResource;
 public class ThemisService {
 
 	
-	public static void executeTests(String clientId, String nOnt, Path out) throws IOException {
+	public static void executeTests(String clientId, String nOnt, Path out) throws Exception {
 		
 		Path ontology = Paths.get("tmp//ontologies//" + clientId + "//" + nOnt + ".rdf");
 		Path test = Paths.get("tmp//ontologies//" + clientId + "//tests//" + nOnt + ".test");

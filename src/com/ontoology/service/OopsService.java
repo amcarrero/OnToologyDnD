@@ -1,7 +1,6 @@
 package com.ontoology.service;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -29,7 +28,7 @@ public class OopsService {
 	
 	public OntModel model = null;
 	
-	public void generateOopsEval(Path ontology, Path out, String title) throws IOException {
+	public void generateOopsEval(Path ontology, Path out, String title) throws Exception {
 		
 		
 		String res = OopsResource.getOopsReport(Files.readAllLines(ontology).stream().reduce((x,y)->x+ " " + y).orElse(""));

@@ -5,10 +5,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -25,6 +27,8 @@ import com.ontoology.service.OnToologyService;
 
 @Controller
 public class OnToologyController {
+	
+    private static final Logger LOG = Logger.getLogger(OnToologyController.class.getName());
 			
 	@GetMapping(value="/app")
 	public ModelAndView index(HttpServletRequest request) {
@@ -57,23 +61,21 @@ public class OnToologyController {
 							HttpServletRequest request) {
 		
 			try {
-				OnToologyService os = new OnToologyService();
-				os.saveOntology(file, id);
+				OnToologyService.saveOntology(file, id);
 				
 				HttpHeaders responseHeaders = new HttpHeaders();
 				responseHeaders.setAccessControlAllowOrigin("*");;
 				
 				return new ResponseEntity<String>("ok", responseHeaders, HttpStatus.OK);
 
-			} catch (IOException e) {
+			} catch (Exception e) {
 				HttpHeaders responseHeaders = new HttpHeaders();
 				responseHeaders.setAccessControlAllowOrigin("*");;
+				LOG.warning(e.getLocalizedMessage());
 				
 				return new ResponseEntity<String>("Not an ontology", responseHeaders, HttpStatus.INTERNAL_SERVER_ERROR);
 
 			}
-		
-		
 	}
 	
 	@PostMapping(value="/sendTest")
@@ -82,8 +84,7 @@ public class OnToologyController {
 							HttpServletRequest request) {
 		
 			try {
-				OnToologyService os = new OnToologyService();
-				os.saveTest(test, id, nOnt);
+				OnToologyService.saveTest(test, id, nOnt);
 				HttpHeaders responseHeaders = new HttpHeaders();
 				responseHeaders.setAccessControlAllowOrigin("*");;
 				
@@ -92,7 +93,8 @@ public class OnToologyController {
 			} catch (IOException e) {
 				HttpHeaders responseHeaders = new HttpHeaders();
 				responseHeaders.setAccessControlAllowOrigin("*");;
-				
+				LOG.warning(e.getLocalizedMessage());
+
 				return new ResponseEntity<String>("Not a test", responseHeaders, HttpStatus.INTERNAL_SERVER_ERROR);
 
 			}
@@ -112,8 +114,18 @@ public class OnToologyController {
 			return new ResponseEntity<String>("OK; Widoco generated", responseHeaders, HttpStatus.OK);
 
 		} catch (Exception e) {
+			LOG.warning(e.getLocalizedMessage());
+
+			Path toRemove = Paths.get("tmp//ontologies//" + idClient + "//OnToology//"+ nOnt+"-"+originalName +"//widoco");
+			try {
+				FileUtils.deleteDirectory(toRemove.toFile());
+			} catch (IOException e1) {
+				LOG.info("The folder " + toRemove.toString() + " has encounter a problem to be removed");
+			}
+			
 			HttpHeaders responseHeaders = new HttpHeaders();
 			responseHeaders.setAccessControlAllowOrigin("*");
+			
 			return new ResponseEntity<String>("Something went wrong", responseHeaders, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
@@ -131,8 +143,18 @@ public class OnToologyController {
 			return new ResponseEntity<String>("OK; AR2DTOOL generated", responseHeaders, HttpStatus.OK);
 
 		} catch (Exception e) {
+			LOG.warning(e.getLocalizedMessage());
+
+			Path toRemove = Paths.get("tmp//ontologies//" + idClient + "//OnToology//"+ nOnt+"-"+originalName +"//ar2dtool");
+			try {
+				FileUtils.deleteDirectory(toRemove.toFile());
+			} catch (IOException e1) {
+				LOG.info("The folder " + toRemove.toString() + " has encounter a problem to be removed");
+			}
+			
 			HttpHeaders responseHeaders = new HttpHeaders();
 			responseHeaders.setAccessControlAllowOrigin("*");
+			
 			return new ResponseEntity<String>("Something went wrong", responseHeaders, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
@@ -149,9 +171,19 @@ public class OnToologyController {
 			
 			return new ResponseEntity<String>("OK; Themis generated", responseHeaders, HttpStatus.OK);
 
-		} catch (IOException e) {
+		} catch (Exception e) {
+			LOG.warning(e.getLocalizedMessage());
+
+			Path toRemove = Paths.get("tmp//ontologies//" + idClient + "//OnToology//"+ nOnt+"-"+originalName +"//themis");
+			try {
+				FileUtils.deleteDirectory(toRemove.toFile());
+			} catch (IOException e1) {
+				LOG.info("The folder " + toRemove.toString() + " has encounter a problem to be removed");
+			}
+			
 			HttpHeaders responseHeaders = new HttpHeaders();
 			responseHeaders.setAccessControlAllowOrigin("*");
+			
 			return new ResponseEntity<String>("Something went wrong", responseHeaders, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
@@ -168,9 +200,19 @@ public class OnToologyController {
 			
 			return new ResponseEntity<String>("OK; Astrea generated", responseHeaders, HttpStatus.OK);
 
-		} catch (IOException e) {
+		} catch (Exception e) {
+			LOG.warning(e.getLocalizedMessage());
+
+			Path toRemove = Paths.get("tmp//ontologies//" + idClient + "//OnToology//"+ nOnt+"-"+originalName +"//astrea");
+			try {
+				FileUtils.deleteDirectory(toRemove.toFile());
+			} catch (IOException e1) {
+				LOG.info("The folder " + toRemove.toString() + " has encounter a problem to be removed");
+			}
+			
 			HttpHeaders responseHeaders = new HttpHeaders();
 			responseHeaders.setAccessControlAllowOrigin("*");
+			
 			return new ResponseEntity<String>("Something went wrong", responseHeaders, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
@@ -187,9 +229,19 @@ public class OnToologyController {
 			
 			return new ResponseEntity<String>("OK; Oops generated", responseHeaders, HttpStatus.OK);
 
-		} catch (IOException e) {
+		} catch (Exception e) {
+			LOG.warning(e.getLocalizedMessage());
+
+			Path toRemove = Paths.get("tmp//ontologies//" + idClient + "//OnToology//"+ nOnt+"-"+originalName +"//oops");
+			try {
+				FileUtils.deleteDirectory(toRemove.toFile());
+			} catch (IOException e1) {
+				LOG.info("The folder " + toRemove.toString() + " has encounter a problem to be removed");
+			}
+			
 			HttpHeaders responseHeaders = new HttpHeaders();
 			responseHeaders.setAccessControlAllowOrigin("*");
+			
 			return new ResponseEntity<String>("Something went wrong", responseHeaders, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
@@ -207,6 +259,8 @@ public class OnToologyController {
 			return new ResponseEntity<String>("OK; ZIP generated", responseHeaders, HttpStatus.OK);
 
 		} catch (IOException e) {
+			LOG.warning(e.getLocalizedMessage());
+
 			HttpHeaders responseHeaders = new HttpHeaders();
 			responseHeaders.setAccessControlAllowOrigin("*");
 			return new ResponseEntity<String>("Something went wrong", responseHeaders, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -231,6 +285,8 @@ public class OnToologyController {
             response.flushBuffer();
             
 		} catch (IOException e) {
+			LOG.warning(e.getLocalizedMessage());
+
         	response.setStatus(HttpServletResponse.SC_NOT_FOUND); 
             response.flushBuffer();
 		}

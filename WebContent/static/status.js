@@ -183,16 +183,18 @@ function backendRequest(service, radio, originalName, nOntology, next, element) 
             console.scrollTop = console.scrollHeight
 
             radio.textContent = "radio_button_checked";
+            radio.classList.add("green");
             
             next(originalName, nOntology, element);
         } else if (e.target.readyState == 4 && e.target.status != 200) {
             // Error. Inform the user
             f = new Date();
-            let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + "  The generation of " + service + " elements of " + originalName + " has encounter a problem, the " + service + " files will not be avaliable";
+            let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + "  The generation of " + service + " elements of " + originalName + " has encountered a problem, the " + service + " files will not be avaliable";
             console.textContent = console.textContent + t + "\n";
-            console.scrollTop = console.scrollHeight
+            console.scrollTop = console.scrollHeight;
+            radio.classList.add("red");
 
-                    next(originalName, nOntology, element);
+            next(originalName, nOntology, element);
         }
     });
 
@@ -225,7 +227,7 @@ function zip() {
 
             h3.textContent = "Your download is ready";
             f = new Date();
-            let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + "  Zip ready, Download your file now!";
+            let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + "  Zip ready, your download will start automatically, if it does not start, you can click on the download button below!";
             console.textContent = console.textContent + t + "\n";
             console.scrollTop = console.scrollHeight
         
@@ -233,10 +235,11 @@ function zip() {
             document.querySelector('button').classList.add("acti");
 
             downloadButton.addEventListener("click", () => window.location.replace("/download/" + idClient));
+            window.location.replace("/download/" + idClient);
         }
         else if (xhr.readyState == 4 && xhr.status != 200) {
             f = new Date();
-            let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + "  The generation of the zip has encounter a problem, the download will not be avaliable";
+            let t = f.getHours() +":" + f.getMinutes() +":"+ f.getSeconds() + "  The generation of the zip has encountered a problem, the download will not be avaliable";
             console.textContent = console.textContent + t + "\n";
             console.scrollTop = console.scrollHeight;
 
@@ -258,4 +261,22 @@ function zip() {
     xhr.send();
 }
 
+console.textContent = console.textContent + "*************** OnToology Drag and Drop **************" + "\n";
+console.textContent = console.textContent + "****************** Selected services *****************" + "\n" + "\n";
+                                            
+for (let index = 0; index < configuration.services.length; index++) {
+    const element = configuration.services[index];
+    console.textContent = console.textContent + element.nOntology + " - " + element.originalName + ": ";
+    let ser = ["widoco", "ar2dtool", "oops", "themis", "astrea"];
+    ser.forEach((e) => {
+        if(element[e])
+            console.textContent = console.textContent + e + " ";
+    });
+    console.textContent = console.textContent + "\n";
+    console.scrollTop = console.scrollHeight;
+}
+console.textContent = console.textContent + "\n" + "******************************************************" + "\n";
+console.scrollTop = console.scrollHeight;
+
 generate();
+
