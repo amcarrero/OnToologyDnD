@@ -14,7 +14,7 @@ public class WidocoService {
 		Process p = Runtime.getRuntime().exec(comm);
 	    p.waitFor();
 	    if(p.exitValue()!=0)
-	    	throw new Exception();
+	    	throw new Exception("Widoco return an exit code: " + p.exitValue());
 	}
 	
 }

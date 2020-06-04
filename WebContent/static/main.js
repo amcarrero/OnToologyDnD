@@ -173,7 +173,16 @@ function previewFile(file) {
     checkbox.name = nOntology;
     checkbox.id = service + nOntology;
     checkbox.checked = globalConfig[service];
-    checkbox.addEventListener("click", () => services[checkbox.name][service] = checkbox.checked);
+    checkbox.addEventListener("click", () => {
+      services.forEach((s) => {
+        if(s.nOntology==checkbox.name){
+          s[service] = checkbox.checked;
+        }
+      }
+    );
+    configuration.services = services;
+    });
+    
     label.setAttribute('for', service + nOntology);
     label.innerText = text;
     div.appendChild(checkbox);
@@ -191,14 +200,21 @@ function previewFile(file) {
   checkboxThemis.id = "themis" + nOntology;
   checkboxThemis.checked = globalConfig.themis;
   checkboxThemis.addEventListener("click", () => {
-    services[checkboxThemis.name].themis = checkboxThemis.checked;
-    if (services[checkboxThemis.name].themis) {
-      dragndroptest.className="";
-      div.classList.add("themis");
-    }else{
-      dragndroptest.className="hidden";
-      div.classList.remove("themis");
-    }
+    services.forEach((s) => {
+      if(s.nOntology==checkboxThemis.name){
+        s.themis= checkboxThemis.checked;
+
+        if (s.themis) {
+          dragndroptest.className="";
+          div.classList.add("themis");
+        }else{
+          dragndroptest.className="hidden";
+          div.classList.remove("themis");
+        }
+      }
+    });
+    configuration.services = services;
+    
   });
   labelThemis.setAttribute('for', "themis" + nOntology);
   labelThemis.innerText = 'Themis';

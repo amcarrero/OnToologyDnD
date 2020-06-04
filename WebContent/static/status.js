@@ -30,6 +30,8 @@ let n = configuration.services.length;
 function generate() {
 
         radios.forEach(x => {   x.textContent = "radio_button_unchecked";
+        x.classList.remove("red");
+        x.classList.remove("green");
     });
 
         const element = configuration.services[index];

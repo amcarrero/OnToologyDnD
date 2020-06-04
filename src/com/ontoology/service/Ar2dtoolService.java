@@ -34,7 +34,7 @@ static String conf2 = Configuration.AR2DTOOL_CONF2;
 		p2.waitFor();
 		
 	    if(p.exitValue()!=0 || p2.exitValue()!=0)
-	    	throw new Exception();
+	    	throw new Exception("AR2DTool return an exit code: " + p.exitValue());
 
 	}
 }

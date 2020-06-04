@@ -81,7 +81,7 @@ main #services{
 
 main #services img{
   
-  max-height: 150px;
+  max-height: 110px;
   max-width: 200px;
   opacity: 1;
 	-webkit-transition: .1s ease-in-out;
