@@ -37,26 +37,6 @@ public class OnToologyService {
 
 	}
 
-	public static void ar2dtool(String clientId, String nOnt, String originalName) throws Exception {
-		Path ontoology = Paths.get("tmp//ontologies//" + clientId + "//OnToology//");
-		if (!Files.exists(ontoology))
-			Files.createDirectory(ontoology);
-
-		Path ontology = Paths.get("tmp//ontologies//" + clientId + "//" + nOnt + ".rdf");
-
-		Path outDir = ontoology.resolve(nOnt + "-" + originalName);
-
-		if (!Files.exists(outDir))
-			Files.createDirectory(outDir);
-
-		Path ar2dDir = outDir.resolve("ar2dtool");
-		if (!Files.exists(ar2dDir))
-			Files.createDirectory(ar2dDir);
-
-		Ar2dtoolService.createDiagrams(ontology.toString(), ar2dDir);
-
-	}
-
 	public static void astrea(String clientId, String nOnt, String originalName) throws Exception {
 		Path ontoology = Paths.get("tmp//ontologies//" + clientId + "//OnToology//");
 		if (!Files.exists(ontoology))

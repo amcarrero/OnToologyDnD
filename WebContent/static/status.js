@@ -4,11 +4,10 @@ let idClient = localStorage.getItem('id');
 let nOnt = localStorage.getItem('nOnt');
 
 let widocoR = document.querySelector('span#widoco');
-let ar2dtoolR = document.querySelector('span#ar2dtool');
 let astreaR = document.querySelector('span#astrea');
 let themisR = document.querySelector('span#themis');
 let oopsR = document.querySelector('span#oops');
-let radios = [widocoR, ar2dtoolR, astreaR, themisR, oopsR];
+let radios = [widocoR, astreaR, themisR, oopsR];
 
 let h3 = document.querySelector('h3');
 
@@ -47,11 +46,6 @@ function generate() {
             widoco(originalName, nOntology, element);
         }
 
-        else if (element["ar2dtool"]) {
-            ar2dtool(originalName, nOntology, element);
-
-        }
-
         else if (element["oops"]) {
             oops(originalName, nOntology, element);
 
@@ -77,10 +71,7 @@ function widoco(originalName, nOntology, element) {
     else
         next = zip;
 
-    if (element["ar2dtool"]) {
-        next = ar2dtool;
-    }
-    else if (element["oops"]) {
+    if (element["oops"]) {
         next = oops;
     }
     else if (element["themis"]) {
@@ -94,26 +85,6 @@ function widoco(originalName, nOntology, element) {
 
 }
 
-function ar2dtool(originalName, nOntology, element) {
-    let next = function () { };
-
-    if(index<n)
-        next = generate;
-    else
-        next = zip;
-    
-    if (element["oops"]) {
-        next = oops;
-    }
-    else if (element["themis"]) {
-        next = themis;
-    }
-    else if (element["astrea"]) {
-        next = astrea;
-    }
-
-    backendRequest('ar2dtool', ar2dtoolR, originalName, nOntology, next, element);
-}
 
 function oops(originalName, nOntology, element) {
     let next = function () { };
@@ -170,7 +141,7 @@ function backendRequest(service, radio, originalName, nOntology, next, element) 
 
     var xhr = new XMLHttpRequest();
     xhr.timeout = 120000;
-    if(service == "widoco" || service == "ar2dtool")
+    if(service == "widoco")
         xhr.timeout = 180000;
 
     let url = "/" + service + '/' + idClient + "/" + nOntology + "/" + originalName;
@@ -269,7 +240,7 @@ console.textContent = console.textContent + "****************** Selected service
 for (let index = 0; index < configuration.services.length; index++) {
     const element = configuration.services[index];
     console.textContent = console.textContent + element.nOntology + " - " + element.originalName + ": ";
-    let ser = ["widoco", "ar2dtool", "oops", "themis", "astrea"];
+    let ser = ["widoco", "oops", "themis", "astrea"];
     ser.forEach((e) => {
         if(element[e])
             console.textContent = console.textContent + e + " ";

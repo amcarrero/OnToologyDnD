@@ -9,7 +9,6 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
 import com.ontoology.resources.ThemisResource;
-import com.ontoology.service.Ar2dtoolService;
 import com.ontoology.service.AstreaService;
 import com.ontoology.service.OopsService;
 import com.ontoology.service.WidocoService;
@@ -21,14 +20,6 @@ public class ServiceTests {
 		Path ontology = Paths.get("TestFiles//ontology.ttl");
 		Path out = Paths.get("TestFiles//out");
 		WidocoService.createWidocoDoc(ontology.toString(), out.toString());
-		FileUtils.cleanDirectory(out.toFile());
-	}
-	
-	@Test
-	public void ar2dtoolTest() throws Exception {
-		Path ontology = Paths.get("TestFiles//ontology.ttl");
-		Path out = Paths.get("TestFiles//out");
-		Ar2dtoolService.createDiagrams(ontology.toString(), out);
 		FileUtils.cleanDirectory(out.toFile());
 	}
 	

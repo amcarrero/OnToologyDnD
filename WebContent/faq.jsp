@@ -49,7 +49,7 @@
                 <h2 class = "pretty2">What is OnToology?</h2>
                 <li class = "pretty">
                     A system to automate part of the collaborative ontology development process. Given an ontology
-                    file, OnToology will produce diagrams, a complete documentation and validation based on
+                    file, OnToology will produce a complete documentation and validation based on
                     common pitfalls.
                 </li>
                 <h2 class = "pretty2">How to use it?</h2>
@@ -71,10 +71,10 @@
 
 
     <footer>
-        <p>Ontology Engineering Group | Powered by Widoco, AR2DTOOL, Astrea, Themis and OOPS! </p>  
-        <img src="static/images/OEG.png" onclick="window.location.href = 'https://oeg.fi.upm.es/';" style="cursor: pointer;">
-        <img src="static/images/ETSIInf.png" onclick="window.location.href ='https://www.fi.upm.es/';" style="cursor: pointer;">
-        <img src="static/images/UPM.png" onclick="window.location.href ='https://www.upm.es/';" style="cursor: pointer;">
+        <p>Ontology Engineering Group | Powered by Widoco, Astrea, Themis and OOPS! </p>  
+        <img src="static/images/OEG.png" onclick="window.open('https://www.oeg-upm.net/', '_blank');win.focus();" style="cursor: pointer;">
+        <img src="static/images/ETSIInf.png" onclick="window.open('https://www.fi.upm.es/', '_blank');win.focus();" style="cursor: pointer;">
+        <img src="static/images/UPM.png" onclick="window.open('https://www.upm.es/', '_blank');win.focus();" style="cursor: pointer;">
     </footer>
 
 

@@ -66,13 +66,6 @@
                 <p id="widoco"></p>
             </div>
             <div>
-                <p>AR2DTOOL</p>
-                <span id="ar2dtool" class="material-icons">
-                    radio_button_unchecked
-                </span>
-                <p id="ar2dtool"></p>
-            </div>
-            <div>
                 <p>OOPS!</p>
                 <span id="oops" class="material-icons">
                     radio_button_unchecked
@@ -102,10 +95,10 @@
     </main>
 
     <footer>
-        <p>Ontology Engineering Group | Powered by Widoco, AR2DTOOL, Astrea, Themis and OOPS! </p>  
-        <img src="static/images/OEG.png" onclick="window.location.href = 'https://oeg.fi.upm.es/';" style="cursor: pointer;">
-        <img src="static/images/ETSIInf.png" onclick="window.location.href ='https://www.fi.upm.es/';" style="cursor: pointer;">
-        <img src="static/images/UPM.png" onclick="window.location.href ='https://www.upm.es/';" style="cursor: pointer;">
+        <p>Ontology Engineering Group | Powered by Widoco, Astrea, Themis and OOPS! </p>  
+        <img src="static/images/OEG.png" onclick="window.open('https://www.oeg-upm.net/', '_blank');win.focus();" style="cursor: pointer;">
+        <img src="static/images/ETSIInf.png" onclick="window.open('https://www.fi.upm.es/', '_blank');win.focus();" style="cursor: pointer;">
+        <img src="static/images/UPM.png" onclick="window.open('https://www.upm.es/', '_blank');win.focus();" style="cursor: pointer;">
     </footer>
 
     <script src="/static/status.js"></script>

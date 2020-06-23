@@ -131,34 +131,6 @@ public class OnToologyController {
 		
 	}
 	
-	@GetMapping(value = "/ar2dtool/{idClient}/{nOnt}/{originalName}")
-	public ResponseEntity<?> ar2dtool(@PathVariable String idClient, @PathVariable String nOnt, @PathVariable String originalName, HttpServletRequest request){
-
-		try {
-			OnToologyService.ar2dtool(idClient, nOnt, originalName);
-			
-			HttpHeaders responseHeaders = new HttpHeaders();
-			responseHeaders.setAccessControlAllowOrigin("*");
-			
-			return new ResponseEntity<String>("OK; AR2DTOOL generated", responseHeaders, HttpStatus.OK);
-
-		} catch (Exception e) {
-			LOG.warning(e.getLocalizedMessage());
-
-			Path toRemove = Paths.get("tmp//ontologies//" + idClient + "//OnToology//"+ nOnt+"-"+originalName +"//ar2dtool");
-			try {
-				FileUtils.deleteDirectory(toRemove.toFile());
-			} catch (IOException e1) {
-				LOG.info("The folder " + toRemove.toString() + " has encounter a problem to be removed");
-			}
-			
-			HttpHeaders responseHeaders = new HttpHeaders();
-			responseHeaders.setAccessControlAllowOrigin("*");
-			
-			return new ResponseEntity<String>("Something went wrong", responseHeaders, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-		
-	}
 	
 	@GetMapping(value = "/themis/{idClient}/{nOnt}/{originalName}")
 	public ResponseEntity<?> themis(@PathVariable String idClient, @PathVariable String nOnt, @PathVariable String originalName, HttpServletRequest request){

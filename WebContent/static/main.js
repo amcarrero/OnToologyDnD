@@ -4,7 +4,6 @@ let globalConfig = {
   astrea: true,
   oops: true,
   themis: true,
-  ar2dtool: true,
   widoco: true,
 }
 
@@ -14,8 +13,6 @@ let oopsButton = document.getElementById("oops");
 addEventToService("oops", oopsButton);
 let themisButton = document.getElementById("themis");
 addEventToService("themis", themisButton);
-let ar2dtoolButton = document.getElementById("ar2dtool");
-addEventToService("ar2dtool", ar2dtoolButton);
 let widocoButton = document.getElementById("widoco");
 addEventToService("widoco", widocoButton);
 
@@ -146,7 +143,6 @@ function previewFile(file) {
     "originalName": file.name,
     "nOntology": nOntology,
     "widoco": globalConfig.widoco,
-    "ar2dtool": globalConfig.ar2dtool,
     "oops": globalConfig.oops,
     "themis": globalConfig.themis,
     "astrea": globalConfig.astrea,
@@ -190,8 +186,7 @@ function previewFile(file) {
   }
 
   createCheckbox("widoco", "Widoco");
-  createCheckbox("ar2dtool", "AR2DTool");
-  createCheckbox("oops", "Oops!");
+  createCheckbox("oops", "OOPS!");
 
   let labelThemis = document.createElement('label');
   let checkboxThemis = document.createElement('input');

@@ -43,13 +43,10 @@
      </header>
 
     <main>        
-        <h2 class="pretty2">What does OnToology D&amp;D generate</h2>
+        <h2 class="pretty2">What does OnToology D&amp;D generate?</h2>
         <ul>
             <li class = "pretty">
                 Generate HTML documentation and .htaccess using Widoco.
-            </li>
-            <li class = "pretty">
-                Generate class and taxonomy diagrams using AR2DTool.
             </li>
             <li class = "pretty">
                 Generate evaluation report using Oops! showing pitfalls in a nice organized HTML.
@@ -85,10 +82,10 @@
 
 
     <footer>
-        <p>Ontology Engineering Group | Powered by Widoco, AR2DTOOL, Astrea, Themis and OOPS! </p>  
-        <img src="static/images/OEG.png" onclick="window.location.href = 'https://oeg.fi.upm.es/';" style="cursor: pointer;">
-        <img src="static/images/ETSIInf.png" onclick="window.location.href ='https://www.fi.upm.es/';" style="cursor: pointer;">
-        <img src="static/images/UPM.png" onclick="window.location.href ='https://www.upm.es/';" style="cursor: pointer;">
+        <p>Ontology Engineering Group | Powered by Widoco, Astrea, Themis and OOPS! </p>  
+        <img src="static/images/OEG.png" onclick="window.open('https://www.oeg-upm.net/', '_blank');win.focus();" style="cursor: pointer;">
+        <img src="static/images/ETSIInf.png" onclick="window.open('https://www.fi.upm.es/', '_blank');win.focus();" style="cursor: pointer;">
+        <img src="static/images/UPM.png" onclick="window.open('https://www.upm.es/', '_blank');win.focus();" style="cursor: pointer;">
     </footer>
 
     <script src="static/menu.js"></script>

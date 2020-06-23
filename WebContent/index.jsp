@@ -47,7 +47,6 @@
         <h2>1) Select the services that you want to use</h2>
         <div id="services">
             <img id="widoco" src="static/images/logo2.png" title="Widoco generate documentation about your ontologies" draggable="false">
-            <img id="ar2dtool" src="static/images/ar2dtool.png" title="AR2DTOOL generate class and taxonomy diagrams" draggable="false">
             <img id="oops" src="static/images/logoWhite65.png" title="Oops! reports the pitfalls of the ontologies" draggable="false">
             <img id="themis" src="static/images/themis.png" title="Themis execute tests to validate your ontology" draggable="false">
             <img id="astrea" src="static/images/astrea-500px.png" title="Astrea generate SHACL shapes" draggable="false">
@@ -77,10 +76,10 @@
 
 
     <footer>
-        <p>Ontology Engineering Group | Powered by Widoco, AR2DTOOL, Astrea, Themis and OOPS! </p>  
-        <img src="static/images/OEG.png" onclick="window.location.href = 'https://oeg.fi.upm.es/';" style="cursor: pointer;">
-        <img src="static/images/ETSIInf.png" onclick="window.location.href ='https://www.fi.upm.es/';" style="cursor: pointer;">
-        <img src="static/images/UPM.png" onclick="window.location.href ='https://www.upm.es/';" style="cursor: pointer;">
+        <p>Ontology Engineering Group | Powered by Widoco, Astrea, Themis and OOPS! </p>  
+        <img src="static/images/OEG.png" onclick="window.open('https://www.oeg-upm.net/', '_blank');win.focus();" style="cursor: pointer;">
+        <img src="static/images/ETSIInf.png" onclick="window.open('https://www.fi.upm.es/', '_blank');win.focus();" style="cursor: pointer;">
+        <img src="static/images/UPM.png" onclick="window.open('https://www.upm.es/', '_blank');win.focus();" style="cursor: pointer;">
     </footer>
 
     <script src="static/main.js"></script>
