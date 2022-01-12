@@ -9,7 +9,7 @@
 	
 	
 	<properties>
-		<spring-version>5.2.6.RELEASE</spring-version>
+		<spring-version>5.3.14</spring-version>
 	</properties>
 
 	<build>
