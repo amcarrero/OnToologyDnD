@@ -18,9 +18,9 @@
   	<servlet-name>Dispatcher</servlet-name>
   	<url-pattern>/</url-pattern>
   </servlet-mapping>
-  
+
   <listener>
-    <listener-class>com.ontoology.util.Init</listener-class>
+    <listener-class>main.java.com.ontoology.util.Init</listener-class>
 </listener>
-  
+
 </web-app>
