@@ -9,14 +9,14 @@ import java.nio.file.Paths;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.RDFWriter;
+import org.apache.jena.rdf.model.RDFWriterI;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ontoology.util.Configuration;
 import com.ontoology.util.ZipDirectory;
 
 public class OnToologyService {
-	
+
 	public static void widoco(String clientId, String nOnt, String originalName) throws Exception {
 		Path ontoology = Paths.get("tmp//ontologies//" + clientId + "//OnToology//");
 		if (!Files.exists(ontoology))
@@ -112,7 +112,7 @@ public class OnToologyService {
 	public static void saveOntology(MultipartFile file, String clientId) throws IOException {
 		if (!file.isEmpty())
 		try {
-			 
+
 				Model model = ModelFactory.createDefaultModel();
 				model.read(file.getInputStream(), null, "RDF/XML");
 				if(model.size() == 0)
@@ -124,17 +124,17 @@ public class OnToologyService {
 					Files.createDirectory(path.resolve("tests"));
 				Long nOntologias = Files.list(path).count();
 				path = Paths.get("tmp//ontologies//" + clientId + "//" + nOntologias + ".rdf");
-				
-				RDFWriter writer = model.getWriter("RDF/XML");
+
+				RDFWriterI writer = model.getWriter("RDF/XML");
 				writer.setProperty("showXmlDeclaration", "true");
 				FileOutputStream fos = new FileOutputStream(path.toString());
 				OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
 				writer.write(model, osw, null);
-				
-			
+
+
 		} catch (Exception pe) {
 			try {
-				
+
 					Model model = ModelFactory.createDefaultModel();
 					model.read(file.getInputStream(), null, "TTL");
 					if(model.size() == 0)
@@ -147,14 +147,14 @@ public class OnToologyService {
 					Long nOntologias = Files.list(path).count();
 					path = Paths.get("tmp//ontologies//" + clientId + "//" + nOntologias + ".rdf");
 
-					RDFWriter writer = model.getWriter("RDF/XML");
+					RDFWriterI writer = model.getWriter("RDF/XML");
 					writer.setProperty("showXmlDeclaration", "true");
 					FileOutputStream fos = new FileOutputStream(path.toString());
 					OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
 					writer.write(model, osw, null);
 
 			} catch (Exception e) {
-				
+
 					Model model = ModelFactory.createDefaultModel();
 					model.read(file.getInputStream(), null, "N-TRIPLE");
 					if(model.size() == 0)
@@ -167,7 +167,7 @@ public class OnToologyService {
 					Long nOntologias = Files.list(path).count();
 					path = Paths.get("tmp//ontologies//" + clientId + "//" + nOntologias + ".rdf");
 
-					RDFWriter writer = model.getWriter("RDF/XML");
+					RDFWriterI writer = model.getWriter("RDF/XML");
 					writer.setProperty("showXmlDeclaration", "true");
 					FileOutputStream fos = new FileOutputStream(path.toString());
 					OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
@@ -178,7 +178,7 @@ public class OnToologyService {
 	}
 
 	public static void saveTest(MultipartFile file, String clientId, String nOnt) throws IOException {
-		
+
 		Model model = ModelFactory.createDefaultModel();
 		model.read(file.getInputStream(), null, "TTL");
 		if(model.size() == 0)
@@ -191,11 +191,11 @@ public class OnToologyService {
 
 		path = Paths.get("tmp//ontologies//" + clientId + "//tests//" + nOnt + ".test");
 
-		RDFWriter writer = model.getWriter("TTL");
+		RDFWriterI writer = model.getWriter("TTL");
 		writer.setProperty("showXmlDeclaration", "true");
 		FileOutputStream fos = new FileOutputStream(path.toString());
 		OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
 		writer.write(model, osw, null);
-		
+
 	}
 }
