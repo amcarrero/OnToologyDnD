@@ -29,3 +29,5 @@ target
 .project
 .settings
 .idea
+libraries
+tmp

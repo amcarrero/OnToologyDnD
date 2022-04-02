@@ -6,8 +6,8 @@
 	<artifactId>ontoology</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
-	
-	
+
+
 	<properties>
 		<spring-version>5.3.18</spring-version>
 	</properties>
@@ -29,33 +29,30 @@
 					<warSourceDirectory>WebContent</warSourceDirectory>
 					<warSourceExcludes>TestFiles</warSourceExcludes>
 					<warSourceExcludes>libraries</warSourceExcludes>
-				</configuration>	
-			</plugin>
+				</configuration>
+			</plugin><plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+				<source>11</source>
+				<target>11</target>
+			</configuration>
+		</plugin>
 		</plugins>
 	</build>
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring-version}</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring-version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>2.6.6</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring-version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<version>2.6.6</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring-version}</version>
-		</dependency>
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -67,7 +64,7 @@
 		  <version>2.1</version>
 		  <scope>provided</scope>
 		</dependency>
-		
+
 
 		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
 		<dependency>
