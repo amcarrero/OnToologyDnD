@@ -13,6 +13,7 @@
 		<apache-commons-version>1.4</apache-commons-version>
 		<apache-jena-version>4.4.0</apache-jena-version>
 		<jgit-version>6.1.0.202203080745-r</jgit-version>
+		<junit-version>5.8.2</junit-version>
 	</properties>
 
 	<build>
@@ -71,6 +72,14 @@
 			<artifactId>org.eclipse.jgit</artifactId>
 			<version>${jgit-version}</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit-version}</version>
+		</dependency>
+
 
 	</dependencies>
 </project>
