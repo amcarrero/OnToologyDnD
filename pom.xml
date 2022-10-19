@@ -10,7 +10,7 @@
 	<properties>
 		<spring-version>2.6.6</spring-version>
 		<jackson-core-version>2.13.2</jackson-core-version>
-		<jackson-databind-version>2.13.2.2</jackson-databind-version>
+		<jackson-databind-version>2.13.4.1</jackson-databind-version>
 		<apache-commons-version>1.4</apache-commons-version>
 		<apache-jena-version>4.4.0</apache-jena-version>
 		<jgit-version>6.1.0.202203080745-r</jgit-version>
